@@ -6,11 +6,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
   this.info = function () {
-    console.log(
-      `${this.title} by ${this.author}, ${this.pages} pages, ${
-        this.read ? "already read" : "not read yet."
-      }`
-    );
+    console.log(`${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? "already read" : "not read yet."}`);
   };
 }
 
@@ -26,12 +22,7 @@ addBookToLibrary("The Hobbit", "J.R.R Tolkien", 295, true);
 addBookToLibrary("Anna Karenina", "Leo Tolstoy", 1878, false);
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 1960, false);
 addBookToLibrary("The Great Gatsby", "Leo Tolstoy", 1920, true);
-addBookToLibrary(
-  "One Hundred Years of Solitude",
-  "Gabriel García",
-  1967,
-  false
-);
+addBookToLibrary("One Hundred Years of Solitude", "Gabriel García", 1967, false);
 addBookToLibrary("A Passage to India", "E.M. Forster", 1924, true);
 addBookToLibrary("Invisible Man", "H.G. Wells", 1828, false);
 // console.log(myLibrary);
@@ -42,15 +33,9 @@ function loadBooks() {
   // list.removeChild(list.firstChild);
   myLibrary.forEach((book, index) => {
     let nBook = document.createElement("tr");
-    nBook.innerHTML = `<td scope="row">${book.title}</td> <td>${
-      book.author
-    }</td> <td>${
-      book.pages
-    }</td> <td data-id="${index}" onClick="updateBook(this)">
+    nBook.innerHTML = `<td scope="row">${book.title}</td> <td>${book.author}</td> <td>${book.pages}</td> <td data-id="${index}" onClick="updateBook(this)">
     <input type="checkbox" ${book.read ? "Checked" : ""} >
-    ${
-      book.read ? "Yes" : "No"
-    }</td><td class="deleteBook"  data-id="${index}" role="button" onClick="removeBook(this)">X</td>`;
+    ${book.read ? "Yes" : "No"}</td><td class="deleteBook"  data-id="${index}" role="button" onClick="removeBook(this)">X</td>`;
     list.appendChild(nBook);
   });
 }
@@ -72,13 +57,7 @@ document.getElementById("newBookForm").addEventListener("submit", (e) => {
 
   let nBook = document.createElement("tr");
 
-  nBook.innerHTML = `<td scope="row">${title}</td> <td>${author}</td> <td>${pages}</td> <td data-id="${
-    myLibrary.length - 1
-  }" onClick="updateBook(this)"><input type="checkbox" ${
-    read ? "Checked" : ""
-  } >${read ? "Yes" : "No"}</td><td class="deleteBook"  data-id="${
-    myLibrary.length - 1
-  }" role="button" onClick="removeBook(this)">X</td>`;
+  nBook.innerHTML = `<td scope="row">${title}</td> <td>${author}</td> <td>${pages}</td> <td data-id="${myLibrary.length - 1}" onClick="updateBook(this)"><input type="checkbox" ${read ? "Checked" : ""} >${read ? "Yes" : "No"}</td><td class="deleteBook"  data-id="${myLibrary.length - 1}" role="button" onClick="removeBook(this)">X</td>`;
   list.appendChild(nBook);
 
   e.preventDefault();
